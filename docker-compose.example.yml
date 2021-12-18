@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    # This service is exposed by Traefik, so no need to expose the ports
+    # ports:
+    #   - "8081:8081"
+    networks:
+      - traefik
+      # docker-compose project network
+      # (to allow the backend to connect to redis)
+      - default 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.redis-commander.loadbalancer.server.port=8081"
+      - "traefik.http.routers.redis-commander.rule=Host(`redis-commander.localhost`)"
+      - "traefik.http.routers.redis-commander.entrypoints=web"
+      - "traefik.docker.network=traefik_overlay"
+  redis:
+    image: redis
+
+networks:
+  traefik:
+    name: traefik_overlay
