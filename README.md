@@ -1,7 +1,7 @@
-# Traefik with docker quick start
+# System-wide containerized Traefik quick start
 
-This is a simple repository that allows to system-wide install `traefik` in a
-container using `docker-compose`.
+This repository introduces a guide and some tips on installing system-wide
+containerized `traefik` instance with `docker-compose`.
 
 ## Installation
 
@@ -55,9 +55,7 @@ nginx
 
 Now you can access your container at `nginx.example.localhost`:
 
-<p style="text-align: center">
-    <img src="docs/nginx-example.png">
-</p>
+![nginx example](docs/nginx-example.png)
 
 ### Docker-Compose service
 
@@ -126,10 +124,7 @@ docker-compose --project-name example --file docker-compose.example.yml up -d
 
 Now you can access your service at `redis-commander.localhost`:
 
-<p style="text-align: center">
-    <img src="docs/redis-commander.png">
-</p>
-
+![docker-compose service example](docs/redis-commander.png)
 
 ## Configuration
 
