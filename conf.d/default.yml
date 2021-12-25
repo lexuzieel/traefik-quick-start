@@ -1,0 +1,7 @@
+http:
+  middlewares:
+    # Source: https://doc.traefik.io/traefik/v2.2/middlewares/redirectscheme/
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
