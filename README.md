@@ -53,7 +53,7 @@ nginx
 > originally containers reside in different networks and cannot access each
 > other.
 
-Now you can access your container at `nginx.example.localhost`:
+Now you can access your container at http://nginx.example.localhost:
 
 ![nginx example](docs/nginx-example.png)
 
@@ -122,7 +122,7 @@ Bring up this docker-compose project:
 docker-compose --project-name example --file docker-compose.example.yml up -d
 ```
 
-Now you can access your service at `redis-commander.localhost`:
+Now you can access your service at http://redis-commander.localhost:
 
 ![docker-compose service example](docs/redis-commander.png)
 
