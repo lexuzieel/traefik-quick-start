@@ -168,7 +168,7 @@ certificatesResolvers:
       #
       # Required
       #
-      storage: "/acme.json"
+      storage: "/etc/traefik/acme/acme.json"
 
       # Use a TLS-ALPN-01 ACME challenge.
       #
@@ -202,7 +202,7 @@ certificatesResolvers:
       #
       # Required
       #
-      storage: "/acme.json"
+      storage: "/etc/traefik/acme/acme.json"
 
       # CA server to use.
       # Uncomment the line to use Let's Encrypt's staging server,
