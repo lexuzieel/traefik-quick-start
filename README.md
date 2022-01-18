@@ -41,6 +41,12 @@ certificatesResolvers:
 > sudo rm acme/acme.json
 > ```
 
+> 🐛 There is currently a [bug with Traefik](https://github.com/traefik/traefik/issues/8633)
+> that prevents switching between resolvers. If you have an already issued
+> certificate by `staging-resolver` you first have to change your service's router
+> [certresolver](https://doc.traefik.io/traefik/routing/routers/#certresolver)
+> parameter to `production-resolver` and then **remove acme.json file**.
+
 4. Bring up Traefik instance:
 
 ```bash
