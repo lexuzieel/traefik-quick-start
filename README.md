@@ -17,7 +17,31 @@ git clone https://github.com/lexuzieel/traefik-quick-start.git traefik
 cd traefik
 ```
 
-3. Bring up traefik instance:
+3. Change ACME E-Mail to register your Let's Encrypt certificates:
+
+```yaml
+# traefik.yml
+
+certificatesResolvers:
+  production-resolver:
+    acme:
+      email: <your-email-here>
+  staging-resolver:
+    acme:
+      email: <your-email-here>
+```
+
+> **⚠️ NOTICE**: This E-Mail will be used to register an account on the first usage by
+> a [certificate resolver specified for a router](https://doc.traefik.io/traefik/routing/routers/#certresolver)
+> and will be stored in `acme/acme.json`.
+> If you will later want to change the E-Mail you will have to
+> remove `acme.json` file. Since it is most likely that it will be created by 
+> the container and will be owned by root, you will have to use `sudo`:
+> ```
+> sudo rm acme/acme.json
+> ```
+
+4. Bring up Traefik instance:
 
 ```bash
 docker-compose up -d
