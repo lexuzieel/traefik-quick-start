@@ -20,6 +20,13 @@ services:
     networks:
       - traefik
     restart: always
+  cert-exporter:
+    image: ldez/traefik-certs-dumper:v2.8.1
+    entrypoint: |
+      traefik-certs-dumper file --version v2 --watch
+      --source /data/acme.json --dest /data/exported
+    volumes:
+      - ./acme:/data
 
 networks:
   traefik:

@@ -3,6 +3,12 @@
 This repository introduces a guide and some tips on installing system-wide
 containerized `traefik` instance with `docker-compose`.
 
+## Features
+
+- 📦 Preconfigured staging and production certificate resolvers (just change the E-Mail)
+- 📄 Automatic certificate export from `acme.json` (without restart)
+- ⚙️ Commonly used dynamic configurations (redirect to HTTPS, TLS version constraints)
+
 ## Installation
 
 1. Clone this repository somewhere on your machine, i.e. home directory:
@@ -56,6 +62,11 @@ docker-compose up -d
 This will create `traefik` docker-compose project with a single container
 `traefik_reverse-proxy_1` that listens on ports 80, 443 and 8080 (dashboard) on
 `localhost`.
+
+5. Find your exported certificates
+
+All generated certificates from `acme.json` are automatically exported as `*.crt` and `*.key` files
+into `acme/exported/certs` and `acme/exported/keys` respectively.
 
 ## Usage
 
