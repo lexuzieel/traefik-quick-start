@@ -61,12 +61,12 @@ docker-compose up -d
 
 This will create `traefik` docker-compose project with a single container
 `traefik_reverse-proxy_1` that listens on ports 80, 443 and 8080 (dashboard) on
-`localhost`.
+`127.0.0.1`.
 
 5. Find your exported certificates
 
 All generated certificates from `acme.json` are automatically exported as `*.crt` and `*.key` files
-into `acme/exported/certs` and `acme/exported/keys` respectively.
+into `acme/exported/certs` and `acme/exported/private` respectively.
 
 ## Usage
 
