@@ -1,0 +1,21 @@
+#
+# Usage
+#
+# Add tls options label to your container:
+#
+# To set maximum TLS version to 1.2:
+# - "traefik.http.routers.my-router.tls.options=max-tls-12@file"
+#
+# To set minimum TLS version to 1.3:
+# - "traefik.http.routers.my-router.tls.options=min-tls-13@file"
+
+tls:
+  options:
+    # Source: https://doc.traefik.io/traefik/https/tls/#maximum-tls-version
+    default:
+      minVersion: VersionTLS12
+      maxVersion: VersionTLS13
+    min-tls-13:
+      minVersion: VersionTLS13
+    max-tls-12:
+      maxVersion: VersionTLS12
