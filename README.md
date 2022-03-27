@@ -25,7 +25,7 @@ git clone https://github.com/lexuzieel/traefik-quick-start.git ~/traefik
 2. Go to the newly created directory:
 
 ```bash
-cd traefik
+cd ~/traefik
 ```
 
 3. Change ACME E-Mail to register your Let's Encrypt certificates:
