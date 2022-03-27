@@ -19,7 +19,7 @@ containerized `traefik` instance with `docker-compose`.
 1. Clone this repository somewhere on your machine, i.e. home directory:
 
 ```bash
-git clone https://github.com/lexuzieel/traefik-quick-start.git traefik
+git clone https://github.com/lexuzieel/traefik-quick-start.git ~/traefik
 ```
 
 2. Go to the newly created directory:
