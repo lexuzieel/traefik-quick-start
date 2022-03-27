@@ -14,7 +14,7 @@ containerized `traefik` instance with `docker-compose`.
 1. [Installation](#installation)
 1. [Usage](#usage)
 
-### Installation
+## Installation
 
 1. Clone this repository somewhere on your machine, i.e. home directory:
 
