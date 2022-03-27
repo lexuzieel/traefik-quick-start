@@ -9,7 +9,12 @@ containerized `traefik` instance with `docker-compose`.
 - 📄 Automatic certificate export from `acme.json` (without restart)
 - ⚙️ Commonly used dynamic configurations (redirect to HTTPS, TLS version constraints)
 
-## Installation
+## Table of Contents
+
+1. [Installation](#installation)
+1. [Usage](#usage)
+
+### Installation
 
 1. Clone this repository somewhere on your machine, i.e. home directory:
 
@@ -37,7 +42,10 @@ certificatesResolvers:
       email: <your-email-here>
 ```
 
-> **⚠️ NOTICE**: This E-Mail will be used to register an account on the first usage by
+<details>
+  <summary>⚠️ Note on changing E-Mail later</summary>
+
+> Your specified E-Mail will be used to register an account on the first usage by
 > a [certificate resolver specified for a router](https://doc.traefik.io/traefik/routing/routers/#certresolver)
 > and will be stored in `acme/acme.json`.
 > If you will later want to change the E-Mail you will have to
@@ -47,11 +55,18 @@ certificatesResolvers:
 > sudo rm acme/acme.json
 > ```
 
-> 🐛 There is currently a [bug with Traefik](https://github.com/traefik/traefik/issues/8633)
+</details>
+
+<details>
+  <summary>🐛 Note on switching certificate resolvers</summary>
+
+> There is currently a [bug with Traefik](https://github.com/traefik/traefik/issues/8633)
 > that prevents switching between resolvers. If you have an already issued
 > certificate by `staging-resolver` you first have to change your service's router
 > [certresolver](https://doc.traefik.io/traefik/routing/routers/#certresolver)
 > parameter to `production-resolver` and then **remove acme.json file**.
+
+</details>
 
 4. Bring up Traefik instance:
 
@@ -70,7 +85,8 @@ into `acme/exported/certs` and `acme/exported/private` respectively.
 
 ## Usage
 
-### Stand-alone container
+<details>
+  <summary>Single docker container</summary>
 
 After bringing up an instance of `traefik`, it will 
 [automatically watch](https://doc.traefik.io/traefik/getting-started/concepts/#auto-service-discovery) 
@@ -98,7 +114,10 @@ Now you can access your container at http://nginx.example.localhost:
 
 ![nginx example](docs/nginx-example.png)
 
-### Docker-Compose service
+</details>
+
+<details>
+  <summary>Docker-Compose service</summary>
 
 Besides single containers you can also annotate `docker-compose` services and
 since they are regular containers they will also be picked up by Traefik.
@@ -166,6 +185,8 @@ docker-compose --project-name example --file docker-compose.example.yml up -d
 Now you can access your service at http://redis-commander.localhost:
 
 ![docker-compose service example](docs/redis-commander.png)
+
+<details>
 
 ## Configuration
 
