@@ -74,9 +74,11 @@ certificatesResolvers:
 docker-compose up -d
 ```
 
-This will create `traefik` docker-compose project with a single container
-`traefik_reverse-proxy_1` that listens on ports 80, 443 and 8080 (dashboard) on
-`127.0.0.1`.
+This will create `traefik` docker-compose project with the following services:
+- `reverse-proxy` - traefik container that listens on ports 80, 443 (HTTP & HTTPS on all
+incoming connections) and 8080 (dashboard bound to localhost);
+- `cert-exporter` - traefik certificate dumper than listens to changes to `acme.json` that traefik
+generates upon certificate issue and updates local `./acme` directory with that file.
 
 5. Find your exported certificates
 
