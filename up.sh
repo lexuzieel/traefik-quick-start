@@ -56,5 +56,8 @@ parse_arguments() {
 
 parse_arguments $@
 
+DOCKER_HOST=${DOCKER_HOST:-/var/run/docker.sock}
+export DOCKER_SOCKET=${DOCKER_HOST##unix://}
+
 docker-compose up -d
 
