@@ -181,7 +181,7 @@ services:
 Bring up this docker-compose project:
 
 ```bash
-docker-compose --project-name example --file docker-compose.example.yml up -d
+docker-compose --project-name example --file sample-docker-compose.yml up -d
 ```
 
 Now you can access your service at http://redis-commander.localhost:
