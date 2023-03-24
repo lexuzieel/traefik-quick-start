@@ -16,7 +16,7 @@ services:
       - ./conf.d:/etc/traefik/conf.d
       - ./acme:/etc/traefik/acme
       # So that Traefik can listen to the Docker events
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ${DOCKER_SOCKET:-/var/run/docker.sock}:/var/run/docker.sock
     networks:
       - traefik
     restart: unless-stopped
