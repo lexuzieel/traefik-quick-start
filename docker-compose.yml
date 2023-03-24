@@ -5,11 +5,11 @@ services:
     image: traefik:v2.6
     ports:
       # The HTTP port
-      - "127.0.0.1:80:80"
+      - "${EXTERNAL_IP:-0.0.0.0}:80:80"
       # The HTTPS port
-      - "127.0.0.1:443:443"
+      - "${EXTERNAL_IP:-0.0.0.0}:443:443"
       # The Web UI (enabled by --api.insecure=true)
-      - "127.0.0.1:8080:8080"
+      - "${INTERNAL_IP:-127.0.0.1}:${INTERNAL_PORT:-8080}:8080"
     volumes:
       # Traefik configuration file
       - ./traefik.yml:/etc/traefik/traefik.yml
@@ -19,7 +19,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - traefik
-    restart: always
+    restart: unless-stopped
   cert-exporter:
     image: ldez/traefik-certs-dumper:v2.8.1
     entrypoint: |
@@ -29,7 +29,7 @@ services:
       - ./acme:/data
     depends_on:
       - reverse-proxy
-    restart: always
+    restart: unless-stopped
 
 networks:
   traefik:
