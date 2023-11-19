@@ -2,7 +2,7 @@ version: "3"
 
 services:
   reverse-proxy:
-    image: traefik:v2.6
+    image: traefik:v2.10
     ports:
       # The HTTP port
       - "${EXTERNAL_IP:-0.0.0.0}:80:80"
