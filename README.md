@@ -12,6 +12,7 @@ containerized `traefik` instance with `docker-compose`.
 ## Table of Contents
 
 1. [Installation](#installation)
+2. [Configuration](#configuration)
 1. [Usage](#usage)
 
 ## Installation
@@ -85,7 +86,17 @@ generates upon certificate issue and updates local `./acme` directory with that 
 All generated certificates from `acme.json` are automatically exported as `*.crt` and `*.key` files
 into `acme/exported/certs` and `acme/exported/private` respectively.
 
+## Configuration
+
+This project has a sample `traefik.yml` configuration file that you can change
+freely. In contrast to the official sample file, it has
+`providers.docker.exposedByDefault` set to `false` by default.
+Consult [configuration introduction](https://doc.traefik.io/traefik/getting-started/configuration-overview/)
+page of Traefik documentation for more details.
+
 ## Usage
+
+Following are the examples of using Traefik with a single docker container and a docker compose stack.
 
 <details>
   <summary>Single docker container</summary>
@@ -188,12 +199,4 @@ Now you can access your service at http://redis-commander.localhost:
 
 ![docker-compose service example](docs/redis-commander.png)
 
-<details>
-
-## Configuration
-
-This project has a sample `traefik.yml` configuration file that you can change
-freely. In contrast to the official sample file, it has
-`providers.docker.exposedByDefault` set to `false` by default.
-Consult [configuration introduction](https://doc.traefik.io/traefik/getting-started/configuration-overview/)
-page of Traefik documentation for more details.
+</details>
