@@ -43,6 +43,12 @@ certificatesResolvers:
       email: <your-email-here>
 ```
 
+You can use this one-liner to quickly change the E-Mail:
+
+```bash
+bash -c 'read -p "Enter E-Mail: " EMAIL && sed -i "s/test@example.com/$EMAIL/g" traefik.yml'
+```
+
 <details>
   <summary>⚠️ Note on changing E-Mail later</summary>
 
